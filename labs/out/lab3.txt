@@ -1,0 +1,41 @@
+Warning messages:
+1: package 'deSolve' was built under R version 4.5.3 
+2: package 'ADSIHT' was built under R version 4.5.3 
+3: package 'glmnet' was built under R version 4.5.3 
+=== [truth] ===
+p = 20 个节点，M = 2 个基函数 ⇒ 每个方程 p·M = 40 个候选系数；n = 100 个时间点
+真实有向边 48 / 400（其中自作用 20 条）；轨道取值范围 [-16.3, 12.0]
+
+=== [one] ===
+SNR = 20 dB，逐方程比较选中的调控者集合：
+方程  2  真实 {1,2,6}
+         ADSIHT {1,2,4,5,6,15,16,20}
+         Lasso  {1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,18,19,20}
+方程 13  真实 {7,13,18}
+         ADSIHT {1,4,7,9,11,17}
+         Lasso  {1,2,3,4,5,7,9,13,17,18}
+方程 20  真实 {15,19,20}
+         ADSIHT {1,2,5,9,15,19}
+         Lasso  {2,3,4,5,6,7,8,9,13,14,15,16,18,19}
+
+=== [compare] ===
+--- SNR = 1 dB（6 次重复平均）---
+  TPR=0.472  FPR=0.167  MCC=0.250   ← 积分+ADSIHT
+  TPR=0.538  FPR=0.279  MCC=0.194   ← 积分+ADSIHT多任务
+  TPR=0.691  FPR=0.492  MCC=0.130   ← 积分+Lasso
+  TPR=0.667  FPR=0.521  MCC=0.095   ← 微分+ADSIHT
+--- SNR = 5 dB（6 次重复平均）---
+  TPR=0.542  FPR=0.248  MCC=0.216   ← 积分+ADSIHT
+  TPR=0.622  FPR=0.342  MCC=0.190   ← 积分+ADSIHT多任务
+  TPR=0.785  FPR=0.562  MCC=0.147   ← 积分+Lasso
+  TPR=0.684  FPR=0.486  MCC=0.129   ← 微分+ADSIHT
+--- SNR = 10 dB（6 次重复平均）---
+  TPR=0.569  FPR=0.268  MCC=0.214   ← 积分+ADSIHT
+  TPR=0.576  FPR=0.295  MCC=0.196   ← 积分+ADSIHT多任务
+  TPR=0.792  FPR=0.565  MCC=0.151   ← 积分+Lasso
+  TPR=0.639  FPR=0.391  MCC=0.164   ← 微分+ADSIHT
+--- SNR = 20 dB（6 次重复平均）---
+  TPR=0.597  FPR=0.265  MCC=0.235   ← 积分+ADSIHT
+  TPR=0.566  FPR=0.295  MCC=0.189   ← 积分+ADSIHT多任务
+  TPR=0.847  FPR=0.626  MCC=0.151   ← 积分+Lasso
+  TPR=0.597  FPR=0.207  MCC=0.292   ← 微分+ADSIHT
